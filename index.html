@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Safe Report System</title>
+
+  <style>
+    body {
+      font-family: monospace;
+      background: black;
+      color: #00ffcc;
+      text-align: center;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    h1 {
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc;
+    }
+
+    input, select {
+      padding: 10px;
+      margin: 10px;
+      width: 260px;
+      border-radius: 5px;
+      border: 1px solid #00ffcc;
+      background: black;
+      color: #00ffcc;
+    }
+
+    input[type="file"] {
+      border: none;
+    }
+
+    button {
+      padding: 12px 25px;
+      background: #00ffcc;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #00ffaa;
+    }
+
+    #result {
+      margin-top: 25px;
+      font-size: 16px;
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      max-width: 400px;
+      border: 1px solid #00ffcc;
+    }
+
+    a {
+      color: #00ffcc;
+    }
+
+    footer {
+      margin-top: 40px;
+      color: #00ffcc;
+      font-size: 14px;
+    }
+
+    img {
+      margin-top: 10px;
+      max-width: 200px;
+      border-radius: 10px;
+      border: 1px solid #00ffcc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>💀 HACK REPORT SYSTEM 💀</h1>
+
+    <input type="text" id="username" placeholder="Enter Username"><br>
+
+    <select id="platform">
+      <option value="">Select Platform</option>
+      <option value="instagram">Instagram</option>
+      <option value="telegram">Telegram</option>
+      <option value="whatsapp">WhatsApp</option>
+      <option value="snapchat">Snapchat</option>
+    </select><br>
+
+    <select id="reason">
+      <option value="">Select Reason</option>
+      <option>Abuse</option>
+      <option>Nudity</option>
+      <option>Spam</option>
+    </select><br>
+
+    <!-- Screenshot Upload -->
+    <input type="file" id="screenshot" accept="image/*"><br>
+
+    <button onclick="generateGuide()">REPORT NOW ⚡</button>
+
+    <div id="result"></div>
+  </div>
+
+  <footer>
+    👨‍💻 Developer: 𝗔 𝗞 𝗞 𝗨 🏴⚕️🕸️
+  </footer>
+
+  <script>
+    function generateGuide() {
+      const username = document.getElementById("username").value;
+      const platform = document.getElementById("platform").value;
+      const reason = document.getElementById("reason").value;
+      const fileInput = document.getElementById("screenshot");
+
+      let guide = "";
+
+      if (platform === "instagram") {
+        guide = `
+        🔴 <b>Instagram Steps:</b><br>
+        1. Open ${username}<br>
+        2. Tap 3 dots<br>
+        3. Click Report<br>
+        4. Select ${reason}<br><br>
+        <a href="https://help.instagram.com/" target="_blank">Open Report Page</a>
+        `;
+      }
+
+      else if (platform === "telegram") {
+        guide = `
+        🔵 <b>Telegram Steps:</b><br>
+        1. Open ${username}<br>
+        2. Profile open<br>
+        3. Click Report/Block<br><br>
+        <a href="https://telegram.org/support" target="_blank">Report Here</a>
+        `;
+      }
+
+      else if (platform === "whatsapp") {
+        guide = `
+        🟢 <b>WhatsApp Steps:</b><br>
+        1. Open ${username}<br>
+        2. Contact info<br>
+        3. Click Report<br><br>
+        <a href="https://www.whatsapp.com/contact/" target="_blank">Support</a>
+        `;
+      }
+
+      else if (platform === "snapchat") {
+        guide = `
+        🟡 <b>Snapchat Steps:</b><br>
+        1. Open ${username}<br>
+        2. Tap profile<br>
+        3. 3 dots → Report<br>
+        4. Choose ${reason}<br><br>
+        <a href="https://support.snapchat.com/" target="_blank">Report Here</a>
+        `;
+      }
+
+      else {
+        guide = "❌ Select platform first";
+      }
+
+      // Show Screenshot Preview
+      if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+          document.getElementById("result").innerHTML =
+            guide + `<br><br><b>📸 Screenshot:</b><br><img src="${e.target.result}">`;
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        document.getElementById("result").innerHTML = guide;
+      }
+    }
+  </script>
+
+</body>
+</html>
