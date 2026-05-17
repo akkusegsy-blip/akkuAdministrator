@@ -1,188 +1,264 @@
-<!DOCTYPE html>
-<html>
+
+  <!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Safe Report System</title>
+<meta charset="UTF-8">
+<title>𝗚𝗢𝗗 𝗔𝗞𝗞𝗨 𝗥𝗘𝗣𝗢𝗥𝗧𝗜𝗡𝗚 𝗧𝗢𝗢𝗟 🗽⚕️</title>
 
-  <style>
-    body {
-      font-family: monospace;
-      background: black;
-      color: #00ffcc;
-      text-align: center;
-    }
+<style>
+body {
+  background: black;
+  color: #00ffcc;
+  font-family: monospace;
+  text-align: center;
+}
 
-    .container {
-      margin-top: 50px;
-    }
+.container {
+  margin-top: 50px;
+}
 
-    h1 {
-      color: #00ffcc;
-      text-shadow: 0 0 10px #00ffcc;
-    }
+input, select, button {
+  padding: 10px;
+  margin: 10px;
+  background: black;
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+}
 
-    input, select {
-      padding: 10px;
-      margin: 10px;
-      width: 260px;
-      border-radius: 5px;
-      border: 1px solid #00ffcc;
-      background: black;
-      color: #00ffcc;
-    }
+button:hover {
+  background: #00ffcc;
+  color: black;
+}
 
-    input[type="file"] {
-      border: none;
-    }
+.progress {
+  width: 80%;
+  background: #111;
+  margin: 20px auto;
+  border: 1px solid #00ffcc;
+}
 
-    button {
-      padding: 12px 25px;
-      background: #00ffcc;
-      color: black;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    button:hover {
-      background: #00ffaa;
-    }
-
-    #result {
-      margin-top: 25px;
-      font-size: 16px;
-      background: #111;
-      padding: 20px;
-      border-radius: 10px;
-      display: inline-block;
-      max-width: 400px;
-      border: 1px solid #00ffcc;
-    }
-
-    a {
-      color: #00ffcc;
-    }
-
-    footer {
-      margin-top: 40px;
-      color: #00ffcc;
-      font-size: 14px;
-    }
-
-    img {
-      margin-top: 10px;
-      max-width: 200px;
-      border-radius: 10px;
-      border: 1px solid #00ffcc;
-    }
-  </style>
+.bar {
+  width: 0%;
+  height: 20px;
+  background: #00ffcc;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>💀 HACK REPORT SYSTEM 💀</h1>
+<div class="container">
 
-    <input type="text" id="username" placeholder="Enter Username"><br>
+<h1>𝗚𝗢𝗗 𝗔𝗞𝗞𝗨 𝗥𝗘𝗣𝗢𝗥𝗧𝗜𝗡𝗚 𝗧𝗢𝗢𝗟</h1>
+<p>⚡ Advanced Reporting System ⚡</p>
 
-    <select id="platform">
-      <option value="">Select Platform</option>
-      <option value="instagram">Instagram</option>
-      <option value="telegram">Telegram</option>
-      <option value="whatsapp">WhatsApp</option>
-      <option value="snapchat">Snapchat</option>
-    </select><br>
+<p>👨‍💻 Developer: 𝗔 𝗞 𝗞 𝗨 🏴⚕️🕸️</p>
 
-    <select id="reason">
-      <option value="">Select Reason</option>
-      <option>Abuse</option>
-      <option>Nudity</option>
-      <option>Spam</option>
-    </select><br>
+<p>📞 Contact: 
+  <a href="tel:+1 (825) 569-6023" style="color:#00ffcc; text-decoration:none;">
+    +1 (825) 569-6023
+  </a>
+</p>
 
-    <!-- Screenshot Upload -->
-    <input type="file" id="screenshot" accept="image/*"><br>
+<button onclick="callNow()">📞 Call Now</button>
+<button onclick="whatsappNow()">💬 WhatsApp</button>
 
-    <button onclick="generateGuide()">REPORT NOW ⚡</button>
+<br><br>
 
-    <div id="result"></div>
-  </div>
+<input type="text" id="username" placeholder="Enter Target Username">
 
-  <footer>
-    👨‍💻 Developer: 𝗔 𝗞 𝗞 𝗨 🏴⚕️🕸️
-  </footer>
+<br>
 
-  <script>
-    function generateGuide() {
-      const username = document.getElementById("username").value;
-      const platform = document.getElementById("platform").value;
-      const reason = document.getElementById("reason").value;
-      const fileInput = document.getElementById("screenshot");
+<select id="platform">
+<option>Select Platform</option>
+<option>Instagram</option>
+<option>WhatsApp</option>
+<option>Telegram</option>
+<option>Snapchat</option>
+</select>
 
-      let guide = "";
+<br>
 
-      if (platform === "instagram") {
-        guide = `
-        🔴 <b>Instagram Steps:</b><br>
-        1. Open ${username}<br>
-        2. Tap 3 dots<br>
-        3. Click Report<br>
-        4. Select ${reason}<br><br>
-        <a href="https://help.instagram.com/" target="_blank">Open Report Page</a>
-        `;
+<select>
+<option>Select Reason</option>
+<option>Bullying or harassment</option>
+<option>Nudity or sexual content</option>
+<option>Violence or threats</option>
+<option>Hate speech</option>
+<option>Fake information</option>
+<option>Other</option>
+</select>
+
+<br>
+
+<label>Mass Report Count:</label><br>
+<input type="number" id="count" placeholder="Enter number (e.g. 100)">
+
+<br>
+
+<br>
+
+<button onclick="startReport()">🚀 Start Mass Report</button>
+
+<div class="progress">
+  <div class="bar" id="bar"></div>
+</div>
+
+<p id="status"></p>
+
+</div>
+
+<button onclick="startReport()">🚀 Start Reporting</button>
+
+<div class="progress">
+  <div class="bar" id="bar"></div>
+</div>
+
+<p id="status"></p>
+
+<p style="font-size:12px;">⚡ Available for support</p>
+
+</div>
+
+<script>
+
+function callNow(){
+  window.location.href = "tel:+18255696023";
+}
+
+function whatsappNow(){
+  window.open("https://wa.me/18255696023", "_blank");
+}
+
+function startReport() {
+  let user = document.getElementById("username").value;
+  let platform = document.getElementById("platform").value;
+  let count = document.getElementById("count").value;
+  let bar = document.getElementById("bar");
+  let status = document.getElementById("status");
+
+  if(user === "" || platform === "Select Platform" || count === ""){
+    alert("Fill all details");
+    return;
+  }
+
+  let progress = 0;
+
+  status.innerText = "⚡ Initializing system...";
+
+  let interval = setInterval(() => {
+    progress++;
+
+    bar.style.width = progress + "%";
+    status.innerText = "Processing: " + progress + "%";
+
+    if(progress >= 100){
+      clearInterval(interval);
+      status.innerText = "✅ Process Complete! Opening official support...";
+
+      let url = "";
+
+      if(platform === "Instagram"){
+        url = "https://help.instagram.com/165828726894770";
       }
-
-      else if (platform === "telegram") {
-        guide = `
-        🔵 <b>Telegram Steps:</b><br>
-        1. Open ${username}<br>
-        2. Profile open<br>
-        3. Click Report/Block<br><br>
-        <a href="https://telegram.org/support" target="_blank">Report Here</a>
-        `;
+      else if(platform === "Telegram"){
+        url = "https://telegram.org/support";
       }
-
-      else if (platform === "whatsapp") {
-        guide = `
-        🟢 <b>WhatsApp Steps:</b><br>
-        1. Open ${username}<br>
-        2. Contact info<br>
-        3. Click Report<br><br>
-        <a href="https://www.whatsapp.com/contact/" target="_blank">Support</a>
-        `;
+      else if(platform === "WhatsApp"){
+        url = "https://www.whatsapp.com/contact";
       }
+     if(platform === "Snapchat") {
 
-      else if (platform === "snapchat") {
-        guide = `
-        🟡 <b>Snapchat Steps:</b><br>
-        1. Open ${username}<br>
-        2. Tap profile<br>
-        3. 3 dots → Report<br>
-        4. Choose ${reason}<br><br>
-        <a href="https://support.snapchat.com/" target="_blank">Report Here</a>
-        `;
-      }
+  // 🔥 Step 1
+  window.open("https://support.snapchat.com/en-US", "_blank");
 
-      else {
-        guide = "❌ Select platform first";
-      }
+  // ⏱️ Step 2
+  setTimeout(() => {
+    window.open("https://support.snapchat.com/en-US/i-need-help", "_blank");
+  }, 1200);
 
-      // Show Screenshot Preview
-      if (fileInput.files.length > 0) {
-        const file = fileInput.files[0];
-        const reader = new FileReader();
+  // ⏱️ Step 3
+  setTimeout(() => {
+    window.open("https://help.snapchat.com/hc/en-us/p/5153567363039232-help-topic", "_blank");
+  }, 2500);
 
-        reader.onload = function(e) {
-          document.getElementById("result").innerHTML =
-            guide + `<br><br><b>📸 Screenshot:</b><br><img src="${e.target.result}">`;
-        };
+  let links = [
+  "https://help.snapchat.com/hc/en-us/requests/new?co=true&tf_23701027754644=cf_report_violation_bullied_harassed_defamed_someone_else&ticket_form_id=17471023300884",
+  "https://help.snapchat.com/hc/en-us/requests/new?co=true&tf_23701027754644=cf_report_violation_violent_dangerous_person_place&ticket_form_id=17471023300884",
+  "https://help.snapchat.com/hc/en-us/requests/new?co=true&tf_23701027754644=cf_report_violation_hate_terror_extremism_speech_symbols&ticket_form_id=17471023300884",
+  "https://help.snapchat.com/hc/en-us/requests/new?co=true&tf_23701027754644=cf_report_violation_nudity_sexual_content_involves_minor&ticket_form_id=17471023300884"
 
-        reader.readAsDataURL(file);
-      } else {
-        document.getElementById("result").innerHTML = guide;
-      }
+"https://help.snapchat.com/hc/en-us/requests/new?co=true&tf_23701027754644=cf_report_violation_nudity_sexual_content_leak&ticket_form_id=17471023300884"
+];
+
+links.forEach((link, i) => {
+  setTimeout(() => {
+    window.open(link, "_blank");
+  }, 3500 * i);
+});
+ <select id="reason">
+    <option value="">Select Reason</option>
+    <option>Bullying or harassment</option>
+<option>Nudity or sexual content</option>
+<option>Violence or threats</option>
+<option>Hate speech</option>
+<option>Fake information</option>
+<option>Other</option>
+  </select>
+
+  <!-- DESCRIPTION -->
+  <textarea id="desc" placeholder="Write details..."></textarea>
+
+  <button onclick="submitForm()">Submit</button>
+</div>
+
+<script>
+function submitForm() {
+
+  let username = document.getElementById("username").value;
+  let reason = document.getElementById("reason").value;
+  let desc = document.getElementById("desc").value;
+
+  let data = {
+    username: username,
+    reason: reason,
+    description: desc
+  };
+
+  console.log("Form Data:", data);
+
+  // 🔥 YAHAN API / SERVER LINK DALNA
+  fetch( 
+let links = [
+  "https://help.snapchat.com/hc/en-us/requests/new?co=true&tf_23701027754644=cf_report_violation_bullied_harassed_defamed_someone_else&ticket_form_id=17471023300884",
+  "https://help.snapchat.com/hc/en-us/requests/new?co=true&tf_23701027754644=cf_report_violation_violent_dangerous_person_place&ticket_form_id=17471023300884",
+  "https://help.snapchat.com/hc/en-us/requests/new?co=true&tf_23701027754644=cf_report_violation_hate_terror_extremism_speech_symbols&ticket_form_id=17471023300884",
+  "https://help.snapchat.com/hc/en-us/requests/new?co=true&tf_23701027754644=cf_report_violation_nudity_sexual_content_involves_minor&ticket_form_id=17471023300884"
+
+"https://help.snapchat.com/hc/en-us/requests/new?co=true&tf_23701027754644=cf_report_violation_nudity_sexual_content_leak&ticket_form_id=17471023300884"
+, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(res => {
+    alert("Submitted!");
+  })
+  .catch(err => {
+    alert("Error!");
+  });
+
+} else {
+  window.open(url, "_blank");
     }
-  </script>
+
+  }, 50);
+}
+
+</script>
 
 </body>
 </html>
